@@ -1,0 +1,7 @@
+.gallery__image {
+  max-width: 282px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

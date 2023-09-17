@@ -1,0 +1,9 @@
+.gallery__image-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 25px 20px 25px 20px;
+  color: #000000;
+  background-color: #ffffff;
+}

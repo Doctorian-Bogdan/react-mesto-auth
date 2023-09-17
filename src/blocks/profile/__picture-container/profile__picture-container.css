@@ -1,0 +1,8 @@
+.profile__picture-container {
+  position: relative;
+}
+
+.profile__picture-container:hover .profile__picture-overlay {
+  visibility: visible;
+  opacity: 1;
+}
