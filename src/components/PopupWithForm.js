@@ -5,7 +5,7 @@ function PopupWithForm({ title, name, buttonText, children, isOpen, onClose, onS
         <h2 className="popup__title">
           {title}
         </h2>
-        <form className="popup__form" id={`${name}Form`} onSubmit={onSubmit} noValidate>
+        <form className="popup__form" id={`${name}Form`} onSubmit={onSubmit}>
           {children}
           <button className="popup__button" type="submit">
             {buttonText}

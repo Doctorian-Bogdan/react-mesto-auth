@@ -1,5 +1,4 @@
 import React, { useState, useEffect }  from 'react';
-import "../index.css";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
@@ -41,27 +40,29 @@ function App() {
   useEffect(() => {
     setLoaderOpen(true);
 
-    api.getUserInfo()
-      .then((res) => {
-        setCurrentUser(res)
-      })
-      .catch((err) => {
-        console.log(`Ошибка: ${err}`)
-      })
-      .finally(() => {
-        setLoaderOpen(false);
-      })
-    api.getInitialCards()
-      .then((res) => {
-        setCards(res)
-      })
-      .catch((err) => {
-        console.log(`Ошибка: ${err}`)
-      })
-      .finally(() => {
-        setLoaderOpen(false);
-      })
-  }, []);
+    if(loggedIn) {
+      api.getUserInfo()
+        .then((res) => {
+          setCurrentUser(res)
+        })
+        .catch((err) => {
+          console.log(`Ошибка: ${err}`)
+        })
+        .finally(() => {
+          setLoaderOpen(false);
+        })
+      api.getInitialCards()
+        .then((res) => {
+          setCards(res)
+        })
+        .catch((err) => {
+          console.log(`Ошибка: ${err}`)
+        })
+        .finally(() => {
+          setLoaderOpen(false);
+        })
+    }
+  }, [loggedIn]);
 
   function closeAllPopups() {
     setAddPlacePopupOpen(false);
@@ -291,15 +292,6 @@ function App() {
             }
           />
         </Routes>
-        {/*<Main*/}
-        {/*  onEditAvatar={handleEditAvatarClick}*/}
-        {/*  onAddPlace={handleAddPlaceClick}*/}
-        {/*  onEditProfile={handleEditProfileClick}*/}
-        {/*  onCardClick={handleCardClick}*/}
-        {/*  onCardLike={handleCardLike}*/}
-        {/*  onCardDeleteClick={handleDeleteClick}*/}
-        {/*  cards={cards}*/}
-        {/*/>*/}
 
         {loggedIn && <Footer />}
 

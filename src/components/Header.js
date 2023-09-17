@@ -1,7 +1,7 @@
 import logo from "../images/logo.svg";
 import {Link, NavLink, useNavigate} from "react-router-dom";
 
-function Header({ email, setLoggedIn, loggedIn }) {
+function Header({email, setLoggedIn, loggedIn}) {
   const navigate = useNavigate();
 
   function handleSignOut() {
@@ -9,9 +9,10 @@ function Header({ email, setLoggedIn, loggedIn }) {
     setLoggedIn(false);
     navigate("/sign-in");
   }
+
   return (
     <header className="header">
-      <img src={logo} alt="логотип место" className="header__logo" />
+      <img src={logo} alt="логотип место" className="header__logo"/>
       {
         loggedIn ? (
           <div className="header__container">
