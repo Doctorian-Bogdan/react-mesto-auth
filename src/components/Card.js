@@ -6,8 +6,8 @@ function Card({card, onCardClick, onCardLike, onCardDeleteClick}) {
   const [isBadImage, setBadImage] = useState(false);
   const imgRef = useRef();
 
-  const isOwn = card.owner._id === currentUser._id;
-  const isLiked = card.likes.some(i => i._id === currentUser._id);
+  const isOwn = card.owner === currentUser._id;
+  const isLiked = card.likes.some(i => i === currentUser._id);
 
   const cardLikeButtonClassName = (
     `gallery__like ${isLiked && 'gallery__like_active'}`

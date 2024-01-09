@@ -61,6 +61,8 @@ function App() {
         .finally(() => {
           setLoaderOpen(false);
         })
+    } else {
+      setLoaderOpen(false);
     }
   }, [loggedIn]);
 
@@ -96,7 +98,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
     setLoaderOpen(true);
 
     if(!isLiked) {
@@ -233,7 +235,7 @@ function App() {
     if(token) {
       auth.checkToken(token)
         .then((res) => {
-          setEmail(res.data.email);
+          setEmail(res.email);
           setLoggedIn(true);
           navigate("/",{replace: true});
         })
@@ -243,6 +245,8 @@ function App() {
         .finally(() => {
           setLoaderOpen(false);
         })
+    } else {
+      setLoaderOpen(false);
     }
   }
 

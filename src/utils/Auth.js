@@ -12,7 +12,7 @@ class Auth {
   }
 
   register(email, password) {
-    return fetch(`${this._baseUrl}signup`, {
+    return fetch(`${this._baseUrl}/signup`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
@@ -26,7 +26,7 @@ class Auth {
   }
 
   authorize(email, password) {
-    return fetch(`${this._baseUrl}signin`, {
+    return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
@@ -40,7 +40,7 @@ class Auth {
   }
 
   checkToken(token) {
-    return fetch(`${this._baseUrl}users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ class Auth {
 }
 
 const auth = new Auth({
-  baseUrl: 'https://auth.nomoreparties.co/'
+  baseUrl: 'https://api.mesto.isachenko.nomoredomainsmonster.ru'
 })
 
 export default auth
